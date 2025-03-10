@@ -34,7 +34,7 @@ export function PhoneList({ phones }: PhoneListProps) {
 
   return (
     <>
-      <div className="w-full py-8">
+      <div className="w-full py-8 min-h-[950px]">
         <div className="mx-auto max-w-6xl px-4">
           <div className="mb-8">
             <p className="text-sm text-gray-700">

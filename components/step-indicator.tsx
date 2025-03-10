@@ -13,15 +13,15 @@ export function StepIndicator({ currentStep }: StepIndicatorProps) {
             <div
               className={`flex h-8 w-8 items-center justify-center rounded-full border-2 ${
                 currentStep === step
-                  ? "border-black bg-black text-white"
+                  ? "border-white bg-white text-[#3E7B8C]"
                   : currentStep > step
-                    ? "border-gray-400 bg-gray-400 text-white"
-                    : "border-gray-400 bg-white text-gray-400"
+                    ? "border-white/50 bg-white/50 text-[#3E7B8C]"
+                    : "border-white/30 bg-transparent text-white"
               }`}
             >
               {step}
             </div>
-            {index < steps.length - 1 && <div className="w-16 border-t border-dashed border-gray-400"></div>}
+            {index < steps.length - 1 && <div className="w-16 border-t border-dashed border-white/30"></div>}
           </div>
         ))}
       </div>

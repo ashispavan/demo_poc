@@ -36,9 +36,9 @@ export function PriorityOptions({ selectedPriority, setSelectedPriority }: Prior
       {options.map((option) => (
         <button
           key={option.id}
-          className={`flex h-[100px] flex-col items-center justify-center rounded-lg border p-4 transition-all hover:border-green-300 ${
-            selectedPriority === option.id ? "border-green-500 bg-white" : "border-gray-200 bg-white"
-          }`}
+          className={`flex h-[100px] flex-col items-center justify-center rounded-lg border p-4 transition-all 
+hover:border-green-600 hover:border-2 hover:shadow-lg  hover:bg-green-100 hover:text-green-700 
+${selectedPriority === option.id ? "border-green-500 border-2 bg-green-100" : "border-gray-200 bg-white"}`}
           onClick={() => setSelectedPriority(option.id)}
         >
           {option.icon}

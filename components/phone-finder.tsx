@@ -168,40 +168,49 @@ export default function PhoneFinder() {
   return (
     <div className="flex flex-col items-center">
       {/* Header */}
-      <div style={{ marginTop: "180px" }} className="w-full py-8 text-center">
+      <div className="w-full py-8 text-center">
         <h1 className="text-5xl font-bold">
-          Let's find your <span className="text-green-500">perfect phone.</span>
+          Let's find your <span className="text-green-500">dream phone</span>
         </h1>
-        <div className="mt-6 flex justify-center">
-          <Image src="/android-logo.svg" alt="Android Logo" width={60} height={60} className="h-12 w-auto" />
-        </div>
+
       </div>
 
       {/* Wizard Section */}
-      <div className="w-full bg-[#f2f7f2] py-12">
+      <div className="w-full bg-[#3E7B8C] py-12">
         <div className="mx-auto max-w-4xl px-4">
+          {/* <div className="mb-12 text-white">
+            <p className="mb-4 text-sm font-medium uppercase tracking-wider">Data plan options</p>
+            <h2 className="mb-4 text-4xl font-bold">Mix and match your plans</h2>
+            <p className="text-lg">
+              We all stay connected differently. That's why we've made it easy for everyone to get the data they need.
+              See how much you can save when you combine Gig Unlimited and Pay As You Gig your way.
+            </p>
+          </div> */}
+
           {/* Step Indicator */}
           <StepIndicator currentStep={currentStep} />
 
-          {/* Step Content */}
+          {/* Rest of the content remains the same */}
           <div className="mt-12 mb-8">
             {currentStep === 1 && (
               <>
-                <h2 className="mb-8 text-center text-3xl font-bold">What are your top priorities?</h2>
+                <h2 className="mb-8 text-center text-3xl font-bold text-white">What are your top priorities?</h2>
                 <PriorityOptions selectedPriority={selectedPriority} setSelectedPriority={handlePrioritySelect} />
               </>
             )}
 
             {currentStep === 2 && (
               <>
-                <h2 className="mb-8 text-center text-3xl font-bold">How much do you want to pay?</h2>
+                <h2 className="mb-8 text-center text-3xl font-bold text-white">How much do you want to pay?</h2>
                 <PriceOptions selectedPrice={selectedPrice} setSelectedPrice={handlePriceSelect} />
               </>
             )}
 
             {currentStep === 3 && (
               <>
-                <h2 className="mb-8 text-center text-3xl font-bold">Thanks, which of these features matter to you?</h2>
+                <h2 className="mb-8 text-center text-3xl font-bold text-white">
+                  Which of these features matter to you?
+                </h2>
                 <FeatureOptions selectedFeature={selectedFeature} setSelectedFeature={handleFeatureSelect} />
               </>
             )}
@@ -210,7 +219,7 @@ export default function PhoneFinder() {
           {/* Navigation */}
           <div className="flex items-center justify-between">
             {currentStep > 1 && (
-              <button onClick={handleStartOver} className="text-sm font-medium text-gray-700 hover:underline">
+              <button onClick={handleStartOver} className="text-sm font-medium text-white hover:underline">
                 Start Over
               </button>
             )}
@@ -220,14 +229,14 @@ export default function PhoneFinder() {
               {currentStep > 1 && (
                 <button
                   onClick={handlePrevStep}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-300"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/30 bg-transparent text-white transition-all hover:bg-white/20 hover:border-white"
                 >
                   <ChevronLeft className="h-5 w-5" />
                 </button>
               )}
               <button
                 onClick={handleNextStep}
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-300 bg-white"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/30 bg-transparent text-white transition-all hover:bg-white/20 hover:border-white"
               >
                 <ChevronRight className="h-5 w-5" />
               </button>
