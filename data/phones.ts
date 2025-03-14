@@ -1,6 +1,111 @@
 import type { Phone } from "@/types/phone"
 
 export const phones: Phone[] = [
+{
+    id: "iphone-16-pro",
+    brand: "Apple",
+    name: "iPhone 16 Pro",
+    price: 1099.99,
+    image: "/phones/iphone16_pro.png",
+    model: "iphone-16-pro",
+    specs: {
+      display: {
+        size: "6.1 inch Super Retina XDR",
+        type: "OLED",
+        refreshRate: "120Hz ProMotion",
+      },
+      processor: {
+        name: "A17 Bionic",
+        type: "Processor",
+      },
+      camera: {
+        main: "48MP + 12MP + 12MP",
+        mainDesc: "Wide + Ultra Wide + Telephoto",
+        selfie: "12MP",
+        selfieDesc: "TrueDepth Camera",
+      },
+      battery: {
+        capacity: "3279mAh",
+        charging: "20W fast charging",
+      },
+    },
+    features: {
+      battery: 3279,
+      memory: 8,
+      storage: 256,
+      waterproof: true,
+    },
+  },
+  {
+    id: "iphone-16-pro-max",
+    brand: "Apple",
+    name: "iPhone 16 Pro Max",
+    price: 1199.99,
+    image: "/phones/iphone16_pro_max.png",
+    model: "iphone-16-pro-max",
+    specs: {
+      display: {
+        size: "6.7 inch Super Retina XDR",
+        type: "OLED",
+        refreshRate: "120Hz ProMotion",
+      },
+      processor: {
+        name: "A17 Bionic",
+        type: "Processor",
+      },
+      camera: {
+        main: "48MP + 12MP + 12MP",
+        mainDesc: "Wide + Ultra Wide + Telephoto",
+        selfie: "12MP",
+        selfieDesc: "TrueDepth Camera",
+      },
+      battery: {
+        capacity: "4323mAh",
+        charging: "20W fast charging",
+      },
+    },
+    features: {
+      battery: 4323,
+      memory: 8,
+      storage: 256,
+      waterproof: true,
+    },
+  },
+  {
+    id: "iphone-16-se",
+    brand: "Apple",
+    name: "iPhone 16 SE",
+    price: 499.99,
+    image: "/phones/iphone16_se.png",
+    model: "iphone-16-se",
+    specs: {
+      display: {
+        size: "4.7 inch Retina HD",
+        type: "LCD",
+        refreshRate: "60Hz",
+      },
+      processor: {
+        name: "A15 Bionic",
+        type: "Processor",
+      },
+      camera: {
+        main: "12MP",
+        mainDesc: "Main Camera",
+        selfie: "7MP",
+        selfieDesc: "Selfie Camera",
+      },
+      battery: {
+        capacity: "2018mAh",
+        charging: "20W fast charging",
+      },
+    },
+    features: {
+      battery: 2018,
+      memory: 4,
+      storage: 128,
+      waterproof: true,
+    },
+  },
   {
     id: "samsung-s25-ultra",
     brand: "Samsung",
@@ -107,41 +212,6 @@ export const phones: Phone[] = [
     },
   },
   {
-    id: "iphone-16-pro",
-    brand: "Apple",
-    name: "iPhone 16 Pro",
-    price: 1099.99,
-    image: "/phones/iphone16_pro.png",
-    model: "iphone-16-pro",
-    specs: {
-      display: {
-        size: "6.1 inch Super Retina XDR",
-        type: "OLED",
-        refreshRate: "120Hz ProMotion",
-      },
-      processor: {
-        name: "A17 Bionic",
-        type: "Processor",
-      },
-      camera: {
-        main: "48MP + 12MP + 12MP",
-        mainDesc: "Wide + Ultra Wide + Telephoto",
-        selfie: "12MP",
-        selfieDesc: "TrueDepth Camera",
-      },
-      battery: {
-        capacity: "3279mAh",
-        charging: "20W fast charging",
-      },
-    },
-    features: {
-      battery: 3279,
-      memory: 8,
-      storage: 256,
-      waterproof: true,
-    },
-  },
-  {
     id: "google-pixel-9-pro-xl",
     brand: "Google",
     name: "Pixel 9 Pro XL",
@@ -170,7 +240,7 @@ export const phones: Phone[] = [
       },
     },
     features: {
-      battery: 4800,
+      battery: 5000,
       memory: 12,
       storage: 256,
       waterproof: true,

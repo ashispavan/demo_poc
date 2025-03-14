@@ -24,7 +24,7 @@ export function ProductDetails({ phone }: ProductDetailsProps) {
   const [paymentType, setPaymentType] = useState<PaymentType>("monthly")
   const [protection, setProtection] = useState<ProtectionPlan>("none")
 
-  const images = [phone.image, "/phones/pixel9_1.png", "/phones/pixel9_2.png", "/phones/pixel9_3.png"]
+  const images = [phone.image, "/phones/pixel9_1.png", "/phones/pixel9_2.png", "/phones/pixel9_3.png", "/phones/pixel9_4.mp4"]
 
   const colors = [
     { name: "Blue", class: "bg-blue-200", value: "#b0c4de" },
@@ -52,6 +52,15 @@ export function ProductDetails({ phone }: ProductDetailsProps) {
             <div className="relative aspect-square overflow-hidden rounded-3xl bg-white">
               {currentImage === 0 ? (
                 <Phone3DViewer color={selectedColor.value} />
+              ) : currentImage === 4 ? (
+                <video
+                  src={images[currentImage]}
+                  className="h-full w-full object-contain"
+                  controls
+                  autoPlay
+                  loop
+                  muted
+                />
               ) : (
                 <Image
                   src={images[currentImage] || "/placeholder.svg"}
@@ -90,6 +99,30 @@ export function ProductDetails({ phone }: ProductDetailsProps) {
                     {idx === 0 ? (
                       <div className="h-full w-full bg-gray-100 rounded-lg flex items-center justify-center text-xs text-gray-500">
                         3D View
+                      </div>
+                    ) : idx === 4 ? (
+                      <div className="h-full w-full bg-gray-100 rounded-lg flex flex-col items-center justify-center">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-6 w-6 text-gray-700"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+                          />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                          />
+                        </svg>
+                        <div className="text-[10px] text-gray-500 mt-1">Video</div>
                       </div>
                     ) : (
                       <Image src={img || "/placeholder.svg"} alt="" fill className="object-contain" />

@@ -178,14 +178,14 @@ export default function PhoneFinder() {
       {/* Wizard Section */}
       <div className="w-full bg-[#3E7B8C] py-12">
         <div className="mx-auto max-w-4xl px-4">
-          {/* <div className="mb-12 text-white">
+          <div className="mb-12 text-white">
             <p className="mb-4 text-sm font-medium uppercase tracking-wider">Data plan options</p>
             <h2 className="mb-4 text-4xl font-bold">Mix and match your plans</h2>
             <p className="text-lg">
               We all stay connected differently. That's why we've made it easy for everyone to get the data they need.
               See how much you can save when you combine Gig Unlimited and Pay As You Gig your way.
             </p>
-          </div> */}
+          </div>
 
           {/* Step Indicator */}
           <StepIndicator currentStep={currentStep} />
@@ -209,7 +209,7 @@ export default function PhoneFinder() {
             {currentStep === 3 && (
               <>
                 <h2 className="mb-8 text-center text-3xl font-bold text-white">
-                  Which of these features matter to you?
+                  Thanks, which of these features matter to you?
                 </h2>
                 <FeatureOptions selectedFeature={selectedFeature} setSelectedFeature={handleFeatureSelect} />
               </>
@@ -229,14 +229,14 @@ export default function PhoneFinder() {
               {currentStep > 1 && (
                 <button
                   onClick={handlePrevStep}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/30 bg-transparent text-white transition-all hover:bg-white/20 hover:border-white"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/30 bg-transparent text-white"
                 >
                   <ChevronLeft className="h-5 w-5" />
                 </button>
               )}
               <button
                 onClick={handleNextStep}
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/30 bg-transparent text-white transition-all hover:bg-white/20 hover:border-white"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/30 bg-transparent text-white"
               >
                 <ChevronRight className="h-5 w-5" />
               </button>
@@ -246,7 +246,64 @@ export default function PhoneFinder() {
       </div>
 
       {/* Phone List */}
-      <PhoneList phones={filteredPhones} />
+      <PhoneList
+        phones={filteredPhones}
+        selectedPriority={selectedPriority}
+        selectedPrice={selectedPrice}
+        selectedFeature={selectedFeature}
+        onRemoveFilter={(filterType) => {
+          if (filterType === "priority") {
+            setSelectedPriority(null)
+            // Re-filter based on remaining filters
+            let filtered = [...phones]
+            if (selectedPrice) {
+              filtered = applyPriceFilter(filtered, selectedPrice)
+            }
+            if (selectedFeature) {
+              filtered = applyFeatureFilter(filtered, selectedFeature)
+            }
+            setFilteredPhones(filtered)
+          } else if (filterType === "price") {
+            setSelectedPrice(null)
+            // Re-filter based on remaining filters
+            let filtered = [...phones]
+            if (selectedPriority) {
+              if (selectedPriority === "gaming") {
+                filtered = filtered.filter((phone) => phone.features.memory >= 8)
+              } else if (selectedPriority === "photos") {
+                filtered = filtered.filter((phone) => phone.brand === "Google" || phone.name.includes("Ultra"))
+              } else if (selectedPriority === "performance") {
+                filtered = filtered.filter((phone) => phone.price >= 999)
+              } else if (selectedPriority === "multitask") {
+                filtered = filtered.filter((phone) => phone.features.memory >= 12)
+              }
+            }
+            if (selectedFeature) {
+              filtered = applyFeatureFilter(filtered, selectedFeature)
+            }
+            setFilteredPhones(filtered)
+          } else if (filterType === "feature") {
+            setSelectedFeature(null)
+            // Re-filter based on remaining filters
+            let filtered = [...phones]
+            if (selectedPriority) {
+              if (selectedPriority === "gaming") {
+                filtered = filtered.filter((phone) => phone.features.memory >= 8)
+              } else if (selectedPriority === "photos") {
+                filtered = filtered.filter((phone) => phone.brand === "Google" || phone.name.includes("Ultra"))
+              } else if (selectedPriority === "performance") {
+                filtered = filtered.filter((phone) => phone.price >= 999)
+              } else if (selectedPriority === "multitask") {
+                filtered = filtered.filter((phone) => phone.features.memory >= 12)
+              }
+            }
+            if (selectedPrice) {
+              filtered = applyPriceFilter(filtered, selectedPrice)
+            }
+            setFilteredPhones(filtered)
+          }
+        }}
+      />
     </div>
   )
 }
